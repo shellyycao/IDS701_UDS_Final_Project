@@ -1,0 +1,7 @@
+state,year,crime_type,incident_count
+AZ,2024,burglary,9299
+AZ,2024,motor_vehicle_theft,10150
+CA,2024,burglary,74779
+CA,2024,motor_vehicle_theft,92757
+FL,2024,burglary,18234
+FL,2024,motor_vehicle_theft,14544
