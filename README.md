@@ -205,9 +205,28 @@ Warning: do not use `scripts/analyze_focus_states_dst.py` or
 
 ## Analysis Notebook: dst_crime_analysis.ipynb
 
-The notebook runs end-to-end from the model panel CSV through all model specifications.
+The notebook runs end-to-end. Stage 1 uses hourly crime data to test the within-state
+displacement mechanism. Stage 2 uses the daily county panel for the cross-state causal estimates.
 
-### Models implemented
+### Stage 1: Within-State Hourly Displacement Analysis
+
+Uses `data/processed/crime/focus_states_hourly_structured.csv` (2024 only; one spring-forward event).
+
+**1A - Hourly profile:** Average crimes per county per hour for the 28-day window before
+and after March 10 spring-forward, plotted separately for CA+FL (treated) and AZ (control).
+
+**1B - Time-bucket summary:** Four buckets defined by how DST shifts light:
+- `morning_dark` (5-8h): sunrise shifts ~1h later on the clock after spring-forward.
+- `evening_light` (18-21h): sunset shifts ~1h later on the clock after spring-forward.
+- `daytime` (9-17h): light regardless.
+- `late_night` (22-4h): dark regardless; regression reference category.
+
+**1C - Displacement regression:** OLS of crime count on `post_dst x time_bucket`,
+with county, day-of-week, and offense-type fixed effects. Run separately for treated
+states and AZ, then as a triple-difference (`treated x post x bucket`) to test whether
+the hourly shift is differential between groups.
+
+### Stage 2: Cross-State Causal Models
 
 **1. Primary TWFE (Difference-in-Differences)**
 
@@ -251,6 +270,22 @@ seasonal effect.
   period granularity.
 
 ### Key results (2022-2024 primary window)
+
+**Stage 1 (hourly mechanism check, 2024 only):**
+
+| Hour | CA+FL change post-DST | Zone |
+|---|---|---|
+| 5-8h (morning) | flat to -6% | Morning dark -- no crime increase |
+| 18h | -10.0% | Evening light |
+| 19h | -14.2% | Evening light |
+| 20-21h | -1% to -2% | Evening light (trailing) |
+
+Evening crime falls in the hours that gain light after spring-forward. Morning crime
+does not rise in the newly darker hours. AZ shows no coherent directional pattern.
+Regression coefficients are directionally consistent but not statistically significant,
+reflecting limited power from a single transition event.
+
+**Stage 2 (cross-state daily DiD):**
 
 Baseline TWFE estimates (county and year-month fixed effects; county-clustered
 standard errors) from the latest notebook run:
