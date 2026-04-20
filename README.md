@@ -102,7 +102,7 @@ state/year alone. Get them from: https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/
 python scripts/build_focus_state_panel.py
 ```
 
-Reads all `{STATE}-{YEAR}.zip` files for CA, FL, AZ. Joins NIBRS offense table to
+Reads all `{STATE}-{YEAR}.zip` files for CA, FL, UT, AZ. Joins NIBRS offense table to
 incident table + agency metadata. Filters to offense codes 120, 220, 23C, 23D, 23F,
 and 240. Applies the AZ county exclusion. Outputs one flat CSV at incident-offense grain.
 
@@ -184,6 +184,7 @@ allowed = {
   "AZ": {"America/Phoenix", "America/Denver"},
   "CA": {"America/Los_Angeles"},
   "FL": {"America/New_York", "America/Chicago"},
+  "UT": {"America/Denver"},
 }
 for st, ok in allowed.items():
   seen = set(model.loc[model["state"] == st, "timezone"].dropna().unique())
@@ -195,7 +196,7 @@ print("ZERO_SHARE:", float((model["incident_count"] == 0).mean()))
 Expected pass criteria:
 - `MODEL_KEY_DUP = 0`
 - `TRT_KEY_DUP = 0`
-- `UNEXPECTED_TZ_AZ/CA/FL` are empty lists
+- `UNEXPECTED_TZ_AZ/CA/FL/UT` are empty lists
 - `ZERO_SHARE > 0` (confirms explicit zero-filled panel)
 
 ### Step 5 - Run analysis
@@ -239,7 +240,7 @@ Implemented via the FWL theorem (sequential within-transformation: demean by cou
 then demean by time period) rather than dummy variables, which avoids memory blowup
 on a panel with 200+ counties x 1,461 dates. Standard errors clustered at county level.
 
-Treatment variable: `in_dst_window x treated_state` — equals 1 for counties in CA/FL
+Treatment variable: `in_dst_window x treated_state` — equals 1 for counties in treated states
 during the DST window (March second Sunday through November first Sunday), 0 otherwise.
 Arizona is always 0 (never in DST window).
 
@@ -296,12 +297,12 @@ standard errors) from the latest notebook run:
 
 | Crime Type | TWFE Coefficient | SE (clustered) | p-value |
 |---|---|---|---|
-| Robbery | +0.0058 | 0.0029 | 0.047 |
-| Theft From Motor Vehicle | +0.0160 | 0.0089 | 0.073 |
-| Burglary | +0.0171 | 0.0097 | 0.076 |
-| Motor Vehicle Theft | -0.0154 | 0.0124 | 0.215 |
-| Shoplifting | +0.0142 | 0.0126 | 0.261 |
-| Theft From Building | -0.0070 | 0.0074 | 0.350 |
+| Theft From Motor Vehicle | +0.0155 | 0.0084 | 0.064 |
+| Robbery | +0.0050 | 0.0026 | 0.053 |
+| Burglary | +0.0102 | 0.0095 | 0.287 |
+| Motor Vehicle Theft | -0.0162 | 0.0115 | 0.161 |
+| Shoplifting | +0.0062 | 0.0121 | 0.607 |
+| Theft From Building | -0.0075 | 0.0066 | 0.255 |
 
 Inference diagnostics in the notebook show:
 - Placebo cutoff tests at June 15 (+/-21 days) are null for all six outcomes. (Distinct from the winter standard-time placebo check).
@@ -317,7 +318,7 @@ stable across baseline, event-study, placebo, and robustness checks.
 
 | Dataset | Source | Coverage |
 |---|---|---|
-| Crime incidents | FBI NIBRS via CDE Downloads | CA, FL, AZ; 2021-2024 |
+| Crime incidents | FBI NIBRS via CDE Downloads | CA, FL, UT, AZ; 2021-2024 |
 | County population | ACS 5-year (Census Bureau) | 2020-2024 |
 | Socioeconomic controls | ACS 5-year (Census Bureau) | 2021-2024 |
 | Timezone | Open-Meteo geocoding (overridden by rule) | All focus counties |
@@ -333,8 +334,8 @@ NIBRS data dictionary: `data/raw/crime/nibrs_state_year/NIBRS_DataDictionary.pdf
 
 **Why Arizona as control?** Arizona does not observe DST statewide (exception: Navajo
 Nation). This gives a clean never-treated control group with similar climate and
-demographic diversity to CA/FL. Difference-in-differences relies on the parallel trends
-assumption: absent DST, CA/FL and AZ would have moved together.
+demographic diversity to CA/FL/UT. Difference-in-differences relies on the parallel trends
+assumption: absent DST, treated states and AZ would have moved together.
 
 **Why exclude Apache, Navajo, Coconino counties?** These AZ counties contain Navajo
 Nation territory, which independently observes DST. Including them as controls would
