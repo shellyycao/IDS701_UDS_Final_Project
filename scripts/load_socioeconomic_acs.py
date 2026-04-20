@@ -32,7 +32,7 @@ RAW_OUT = ROOT / "data" / "raw" / "socioeconomic" / "acs_county_controls_raw_202
 DERIVED_OUT = ROOT / "data" / "processed" / "socioeconomic" / "acs_county_controls_derived_2021_2024.csv"
 
 YEARS = [2021, 2022, 2023, 2024]
-STATE_CODE_TO_ABBR = {"04": "AZ", "06": "CA", "12": "FL"}
+STATE_CODE_TO_ABBR = {"04": "AZ", "06": "CA", "12": "FL", "49": "UT"}
 STATE_ABBR_TO_CODE = {v: k for k, v in STATE_CODE_TO_ABBR.items()}
 
 ACS_VARS = [

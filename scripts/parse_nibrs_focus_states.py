@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parents[1]
 RAW_ZIP_DIR = ROOT / "data" / "raw" / "crime" / "nibrs_state_year"
 OUT_DIR = ROOT / "data" / "processed" / "crime"
 
-FOCUS_STATES = {"CA", "FL", "AZ"}
+FOCUS_STATES = {"CA", "FL", "AZ", "UT"}
 FOCUS_CRIME_CODES = {
     "220": "burglary",
     "240": "motor_vehicle_theft",

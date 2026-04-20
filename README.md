@@ -4,7 +4,7 @@
 
 Does the switch to Daylight Saving Time change crime rates? This project uses a
 difference-in-differences design to estimate the effect of the spring DST transition
-across six offense types in California, Florida, and Arizona (2022-2024).
+across six offense types in California, Florida, Utah, and Arizona (2022-2024).
 
 ---
 
@@ -14,8 +14,11 @@ across six offense types in California, Florida, and Arizona (2022-2024).
 
 **Identification strategy:** Difference-in-differences with two-way fixed effects (TWFE).
 
-- **Treated states:** California and Florida (observe DST).
+- **Treated states:** California, Florida, and Utah (all observe DST).
 - **Control state:** Arizona (does not observe DST; clocks never change).
+- **Why Utah?** Utah borders Arizona directly, sharing similar climate, regional
+  economic conditions, and demographic patterns. This geographic proximity strengthens
+  the parallel trends assumption — the key identifying assumption of the DiD design.
 - **Excluded from AZ control:** Apache, Navajo, and Coconino counties, which contain
   Navajo Nation territory that observes DST independently — their inclusion would
   contaminate the control group.
@@ -30,7 +33,8 @@ across six offense types in California, Florida, and Arizona (2022-2024).
 - Fall back: first Sunday in November each year.
 - Arizona counties assigned `America/Phoenix` timezone (no DST); FL panhandle counties
   assigned `America/Chicago`; all other FL counties `America/New_York`; all CA counties
-  `America/Los_Angeles`. Rules are deterministic overrides, not geocoder outputs.
+  `America/Los_Angeles`; all UT counties `America/Denver`. Rules are deterministic
+  overrides, not geocoder outputs.
 
 ---
 
@@ -54,7 +58,7 @@ IDS701_UDS_Final_Project/
 |   `-- load_crime_open_data.py         Legacy city-level API pulls (superseded; do not use)
 |-- data/
 |   |-- raw/
-|   |   |-- crime/nibrs_state_year/     NIBRS ZIPs: AZ/CA/FL x 2021-2024 (gitignored)
+|   |   |-- crime/nibrs_state_year/     NIBRS ZIPs: AZ/CA/FL/UT x 2021-2024 (gitignored)
 |   |   |-- dst/                        DST calendar CSV
 |   |   |-- holidays/                   US public holidays 2021-2024
 |   |   |-- population/                 Census Bureau county population estimates

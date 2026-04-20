@@ -33,7 +33,7 @@ ROOT = Path(__file__).resolve().parents[1]
 RAW_ZIP_DIR = ROOT / "data" / "raw" / "crime" / "nibrs_state_year"
 OUT_DIR = ROOT / "data" / "processed" / "panel"
 
-FOCUS_STATES = {"CA", "FL", "AZ"}
+FOCUS_STATES = {"CA", "FL", "AZ", "UT"}
 FOCUS_CRIME_CODES = {"120", "220", "23C", "23D", "23F", "240"}
 AZ_EXCLUDED_COUNTIES = {"APACHE", "NAVAJO", "COCONINO"}
 ZIP_RE = re.compile(r"^(?P<state>[A-Z]{2})-(?P<year>\d{4})\.zip$")

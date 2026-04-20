@@ -72,7 +72,7 @@ def build_treatment_table(base_daily: pd.DataFrame) -> pd.DataFrame:
     out["dst_start_date"] = pd.to_datetime(out["dst_start_date"], errors="coerce").dt.date
     out["dst_end_date"] = pd.to_datetime(out["dst_end_date"], errors="coerce").dt.date
 
-    out["treated_state"] = out["state"].isin(["CA", "FL"]) 
+    out["treated_state"] = out["state"].isin(["CA", "FL", "UT"]) 
     out["is_az_control"] = out["state"].eq("AZ")
 
     # County-level DST observance flag from timezone assignment.

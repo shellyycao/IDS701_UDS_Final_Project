@@ -28,7 +28,7 @@ TZ_OUT = ROOT / "data" / "raw" / "timezone" / "focus_states_county_centroids_tim
 HOLIDAY_OUT = ROOT / "data" / "raw" / "holidays" / "us_public_holidays_2021_2024.csv"
 WEATHER_OUT = ROOT / "data" / "raw" / "weather" / "focus_states_daily_weather_2021_2024.csv"
 
-STATE_NAME = {"AZ": "Arizona", "CA": "California", "FL": "Florida"}
+STATE_NAME = {"AZ": "Arizona", "CA": "California", "FL": "Florida", "UT": "Utah"}
 YEARS = [2021, 2022, 2023, 2024]
 
 # Florida counties that observe Central Time at county-level aggregation.
@@ -175,6 +175,11 @@ def apply_timezone_rules(tz_table: pd.DataFrame) -> pd.DataFrame:
     out.loc[az_default, "geo_feature_code"] = "RULE_AZ_PHOENIX"
     out.loc[az_excluded, "timezone"] = "America/Denver"
     out.loc[az_excluded, "geo_feature_code"] = "RULE_AZ_EXCLUDED"
+
+    # Utah: all counties observe Mountain Time (with DST).
+    ut_mask = out["state"].eq("UT")
+    out.loc[ut_mask, "timezone"] = "America/Denver"
+    out.loc[ut_mask, "geo_feature_code"] = "RULE_UT"
 
     out.loc[out["timezone"].notna(), "geo_error"] = pd.NA
 
