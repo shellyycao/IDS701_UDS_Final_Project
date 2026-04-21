@@ -1,0 +1,23 @@
+# Raw data — never committed
+data/raw/
+
+# Large processed intermediates — too big for git
+data/processed/panel/
+data/processed/model/
+
+# Keep these processed outputs committed
+# (data/processed/crime/, data/processed/population/, data/processed/socioeconomic/, data/processed/analysis/ are NOT ignored)
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
