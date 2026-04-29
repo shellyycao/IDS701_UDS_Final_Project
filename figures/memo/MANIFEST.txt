@@ -9,5 +9,6 @@
 09_25_event_study.png	25_event_study
 10_27_heterogeneity.png	27_heterogeneity
 11_28_robustness.png	28_robustness
+12_212_all_crime_aggregate.png	212_all_crime_aggregate
 
-total=11
+total=12
