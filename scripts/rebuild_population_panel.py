@@ -5,7 +5,7 @@ import pandas as pd
 POP_FILE = "data/raw/population/co-est2024-alldata.csv"
 OUT_FILE = "data/processed/population/focus_states_county_population_2020_2024_long.csv"
 
-STATE_FIPS = {"04": "AZ", "06": "CA", "32": "NV"}
+STATE_FIPS = {"04": "AZ", "06": "CA", "32": "NV", "49": "UT"}
 EXCLUDED_AZ = {"APACHE", "NAVAJO", "COCONINO"}
 POP_COLS = {yr: f"POPESTIMATE{yr}" for yr in range(2020, 2025)}
 

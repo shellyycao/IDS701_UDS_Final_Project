@@ -4,7 +4,7 @@ import pandas as pd
 import requests
 
 BASE_URL = "https://api.census.gov/data/{year}/acs/acs5"
-STATES = {"04": "AZ", "06": "CA", "32": "NV"}
+STATES = {"04": "AZ", "06": "CA", "32": "NV", "49": "UT"}
 YEARS = [2021, 2022, 2023, 2024]
 
 VARS = [
@@ -51,27 +51,18 @@ def main():
             try:
                 df = fetch_year_state(year, fips)
                 df["data_year"] = year
+                df["state_fips"] = fips.zfill(2)   # preserve numeric FIPS before overwrite
                 df["state"] = abbr
                 all_raw.append(df)
             except Exception as exc:
                 print(f"    ERROR {year} {abbr}: {exc}")
 
     raw = pd.concat(all_raw, ignore_index=True)
-    raw["county_fips"] = (raw["state_fips"] if "state_fips" in raw.columns
-                          else raw["state"]).astype(str).str.zfill(2) + raw["county"].str.zfill(3)
-
-    raw["county_fips"] = raw.apply(
-        lambda r: str(r.get("state", "")).zfill(2) + str(r.get("county", "")).zfill(3)
-        if len(str(r.get("county_fips", ""))) != 5
-        else str(r.get("county_fips", "")).zfill(5),
-        axis=1,
+    # Use the preserved numeric state FIPS to build correct 5-digit county FIPS
+    raw["county_fips"] = (
+        raw["state_fips"].astype(str).str.zfill(2)
+        + raw["county"].astype(str).str.zfill(3)
     )
-
-    # Build numeric 5-digit FIPS from Census state/county codes (before state is replaced with abbr)
-    if "state" in raw.columns and "county" in raw.columns:
-        raw["county_fips"] = (
-            raw["state"].astype(str).str.zfill(2) + raw["county"].astype(str).str.zfill(3)
-        )
 
     raw.rename(columns={"NAME": "county_name_raw"}, inplace=True)
     raw.to_csv(RAW_OUT, index=False)

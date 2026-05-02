@@ -17,7 +17,7 @@ OUT_2022 = "data/processed/model/focus_states_daily_county_model_panel_2022_2024
 
 CRIME_TYPES = ["robbery", "burglary", "shoplifting",
                "theft_from_building", "theft_from_motor_vehicle", "motor_vehicle_theft"]
-TREATED_STATES = {"CA", "NV"}
+TREATED_STATES = {"CA", "NV", "UT"}
 START_DATE = date(2021, 1, 1)
 END_DATE = date(2024, 12, 31)
 

@@ -1,0 +1,120 @@
+state,county_fips,county_name,timezone,proposal_excluded_az_county
+AZ,04001,APACHE,America/Denver,True
+AZ,04003,COCHISE,America/Phoenix,False
+AZ,04005,COCONINO,America/Denver,True
+AZ,04007,GILA,America/Phoenix,False
+AZ,04009,GRAHAM,America/Phoenix,False
+AZ,04011,GREENLEE,America/Phoenix,False
+AZ,04012,LA PAZ,America/Phoenix,False
+AZ,04013,MARICOPA,America/Phoenix,False
+AZ,04015,MOHAVE,America/Phoenix,False
+AZ,04017,NAVAJO,America/Denver,True
+AZ,04019,PIMA,America/Phoenix,False
+AZ,04021,PINAL,America/Phoenix,False
+AZ,04023,SANTA CRUZ,America/Phoenix,False
+AZ,04025,YAVAPAI,America/Phoenix,False
+AZ,04027,YUMA,America/Phoenix,False
+CA,06001,ALAMEDA,America/Los_Angeles,False
+CA,06003,ALPINE,America/Los_Angeles,False
+CA,06005,AMADOR,America/Los_Angeles,False
+CA,06007,BUTTE,America/Los_Angeles,False
+CA,06009,CALAVERAS,America/Los_Angeles,False
+CA,06011,COLUSA,America/Los_Angeles,False
+CA,06013,CONTRA COSTA,America/Los_Angeles,False
+CA,06015,DEL NORTE,America/Los_Angeles,False
+CA,06017,EL DORADO,America/Los_Angeles,False
+CA,06019,FRESNO,America/Los_Angeles,False
+CA,06021,GLENN,America/Los_Angeles,False
+CA,06023,HUMBOLDT,America/Los_Angeles,False
+CA,06025,IMPERIAL,America/Los_Angeles,False
+CA,06027,INYO,America/Los_Angeles,False
+CA,06029,KERN,America/Los_Angeles,False
+CA,06031,KINGS,America/Los_Angeles,False
+CA,06033,LAKE,America/Los_Angeles,False
+CA,06035,LASSEN,America/Los_Angeles,False
+CA,06037,LOS ANGELES,America/Los_Angeles,False
+CA,06039,MADERA,America/Los_Angeles,False
+CA,06041,MARIN,America/Los_Angeles,False
+CA,06043,MARIPOSA,America/Los_Angeles,False
+CA,06045,MENDOCINO,America/Los_Angeles,False
+CA,06047,MERCED,America/Los_Angeles,False
+CA,06049,MODOC,America/Los_Angeles,False
+CA,06051,MONO,America/Los_Angeles,False
+CA,06053,MONTEREY,America/Los_Angeles,False
+CA,06055,NAPA,America/Los_Angeles,False
+CA,06057,NEVADA,America/Los_Angeles,False
+CA,06059,ORANGE,America/Los_Angeles,False
+CA,06061,PLACER,America/Los_Angeles,False
+CA,06063,PLUMAS,America/Los_Angeles,False
+CA,06065,RIVERSIDE,America/Los_Angeles,False
+CA,06067,SACRAMENTO,America/Los_Angeles,False
+CA,06069,SAN BENITO,America/Los_Angeles,False
+CA,06071,SAN BERNARDINO,America/Los_Angeles,False
+CA,06073,SAN DIEGO,America/Los_Angeles,False
+CA,06075,SAN FRANCISCO,America/Los_Angeles,False
+CA,06077,SAN JOAQUIN,America/Los_Angeles,False
+CA,06079,SAN LUIS OBISPO,America/Los_Angeles,False
+CA,06081,SAN MATEO,America/Los_Angeles,False
+CA,06083,SANTA BARBARA,America/Los_Angeles,False
+CA,06085,SANTA CLARA,America/Los_Angeles,False
+CA,06087,SANTA CRUZ,America/Los_Angeles,False
+CA,06089,SHASTA,America/Los_Angeles,False
+CA,06091,SIERRA,America/Los_Angeles,False
+CA,06093,SISKIYOU,America/Los_Angeles,False
+CA,06095,SOLANO,America/Los_Angeles,False
+CA,06097,SONOMA,America/Los_Angeles,False
+CA,06099,STANISLAUS,America/Los_Angeles,False
+CA,06101,SUTTER,America/Los_Angeles,False
+CA,06103,TEHAMA,America/Los_Angeles,False
+CA,06105,TRINITY,America/Los_Angeles,False
+CA,06107,TULARE,America/Los_Angeles,False
+CA,06109,TUOLUMNE,America/Los_Angeles,False
+CA,06111,VENTURA,America/Los_Angeles,False
+CA,06113,YOLO,America/Los_Angeles,False
+CA,06115,YUBA,America/Los_Angeles,False
+NV,32001,CHURCHILL,America/Los_Angeles,False
+NV,32003,CLARK,America/Los_Angeles,False
+NV,32005,DOUGLAS,America/Los_Angeles,False
+NV,32007,ELKO,America/Los_Angeles,False
+NV,32009,ESMERALDA,America/Los_Angeles,False
+NV,32011,EUREKA,America/Los_Angeles,False
+NV,32013,HUMBOLDT,America/Los_Angeles,False
+NV,32015,LANDER,America/Los_Angeles,False
+NV,32017,LINCOLN,America/Los_Angeles,False
+NV,32019,LYON,America/Los_Angeles,False
+NV,32021,MINERAL,America/Los_Angeles,False
+NV,32023,NYE,America/Los_Angeles,False
+NV,32027,PERSHING,America/Los_Angeles,False
+NV,32029,STOREY,America/Los_Angeles,False
+NV,32031,WASHOE,America/Los_Angeles,False
+NV,32033,WHITE PINE,America/Los_Angeles,False
+NV,32510,CARSON CITY,America/Los_Angeles,False
+UT,49001,BEAVER,America/Denver,False
+UT,49003,BOX ELDER,America/Denver,False
+UT,49005,CACHE,America/Denver,False
+UT,49007,CARBON,America/Denver,False
+UT,49009,DAGGETT,America/Denver,False
+UT,49011,DAVIS,America/Denver,False
+UT,49013,DUCHESNE,America/Denver,False
+UT,49015,EMERY,America/Denver,False
+UT,49017,GARFIELD,America/Denver,False
+UT,49019,GRAND,America/Denver,False
+UT,49021,IRON,America/Denver,False
+UT,49023,JUAB,America/Denver,False
+UT,49025,KANE,America/Denver,False
+UT,49027,MILLARD,America/Denver,False
+UT,49029,MORGAN,America/Denver,False
+UT,49031,PIUTE,America/Denver,False
+UT,49033,RICH,America/Denver,False
+UT,49035,SALT LAKE,America/Denver,False
+UT,49037,SAN JUAN,America/Denver,False
+UT,49039,SANPETE,America/Denver,False
+UT,49041,SEVIER,America/Denver,False
+UT,49043,SUMMIT,America/Denver,False
+UT,49045,TOOELE,America/Denver,False
+UT,49047,UINTAH,America/Denver,False
+UT,49049,UTAH,America/Denver,False
+UT,49051,WASATCH,America/Denver,False
+UT,49053,WASHINGTON,America/Denver,False
+UT,49055,WAYNE,America/Denver,False
+UT,49057,WEBER,America/Denver,False

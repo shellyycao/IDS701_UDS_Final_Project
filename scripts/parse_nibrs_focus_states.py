@@ -6,7 +6,7 @@ import pandas as pd
 ZIP_DIR = "data/raw/crime/nibrs_state_year"
 OUT_DIR = "data/processed/crime"
 
-FOCUS_STATES = {"CA", "NV", "AZ"}
+FOCUS_STATES = {"CA", "NV", "AZ", "UT"}
 OFFENSE_MAP = {"220": "burglary", "240": "motor_vehicle_theft"}
 EXCLUDED_AZ_COUNTIES = {"APACHE", "NAVAJO", "COCONINO"}
 
