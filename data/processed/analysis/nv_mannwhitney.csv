@@ -1,9 +1,0 @@
-variable,state_compared,u_statistic,p_value
-median_household_income,AZ,189.0,0.0068
-median_household_income,CA,375.0,0.2452
-poverty_rate,AZ,57.0,0.0082
-poverty_rate,CA,410.0,0.2965
-unemployment_rate,AZ,72.0,0.0378
-unemployment_rate,CA,313.0,0.0231
-bachelors_plus_rate,AZ,107.0,0.4501
-bachelors_plus_rate,CA,264.0,0.0038
