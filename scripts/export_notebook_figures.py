@@ -1,15 +1,21 @@
-"""Extract PNG outputs from dst_crime_analysis.ipynb into figures/memo/."""
+"""Extract PNG outputs from a Jupyter notebook into a figures directory.
+
+Defaults follow the final-submission layout (extract from
+`notebooks/dst_crime_ca_az_refined.ipynb` into `figures/memo_refined/`), but you can
+override both paths via CLI args.
+"""
 
 from __future__ import annotations
 
 import base64
 import json
 import re
+import argparse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-NOTEBOOK = ROOT / "notebooks" / "dst_crime_analysis.ipynb"
-OUT_DIR = ROOT / "figures" / "memo"
+DEFAULT_NOTEBOOK = ROOT / "notebooks" / "dst_crime_ca_az_refined.ipynb"
+DEFAULT_OUT_DIR = ROOT / "figures" / "memo_refined"
 
 
 def slug(s: str, max_len: int = 50) -> str:
@@ -19,8 +25,30 @@ def slug(s: str, max_len: int = 50) -> str:
 
 
 def main() -> None:
-    nb = json.loads(NOTEBOOK.read_text(encoding="utf-8"))
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--notebook",
+        type=Path,
+        default=DEFAULT_NOTEBOOK,
+        help="Path to the input .ipynb notebook (default: notebooks/dst_crime_ca_az_refined.ipynb)",
+    )
+    parser.add_argument(
+        "--out-dir",
+        type=Path,
+        default=DEFAULT_OUT_DIR,
+        help="Directory to write extracted PNGs (default: figures/memo_refined)",
+    )
+    args = parser.parse_args()
+
+    notebook_path: Path = args.notebook
+    out_dir: Path = args.out_dir
+    if not notebook_path.is_absolute():
+        notebook_path = (ROOT / notebook_path).resolve()
+    if not out_dir.is_absolute():
+        out_dir = (ROOT / out_dir).resolve()
+
+    nb = json.loads(notebook_path.read_text(encoding="utf-8"))
+    out_dir.mkdir(parents=True, exist_ok=True)
 
     last_md_heading = "intro"
     saved: list[tuple[str, str]] = []
@@ -50,16 +78,16 @@ def main() -> None:
             if pic_idx > 1:
                 fname += f"_part{pic_idx}"
             fname += ".png"
-            path = OUT_DIR / fname
+            path = out_dir / fname
             path.write_bytes(raw)
             saved.append((fname, last_md_heading))
 
-    manifest = OUT_DIR / "MANIFEST.txt"
+    manifest = out_dir / "MANIFEST.txt"
     manifest.write_text(
         "\n".join(f"{a}\t{b}" for a, b in saved) + f"\n\ntotal={len(saved)}\n",
         encoding="utf-8",
     )
-    print(f"Wrote {len(saved)} PNG(s) to {OUT_DIR}")
+    print(f"Wrote {len(saved)} PNG(s) to {out_dir}")
 
 
 if __name__ == "__main__":

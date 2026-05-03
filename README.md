@@ -6,6 +6,8 @@ Does the switch to Daylight Saving Time change crime rates? This project uses a
 difference-in-differences design to estimate the effect of the spring DST transition
 across six offense types in California, Florida, Utah, and Arizona (2022-2024).
 
+**For final submission / grading:** start with `SUBMISSION.md` and the memo in `reports/`.
+
 ---
 
 ## Research Design
@@ -42,8 +44,13 @@ across six offense types in California, Florida, Utah, and Arizona (2022-2024).
 
 ```
 IDS701_UDS_Final_Project/
+|-- reports/
+|   |-- DST_CRIME_ANALYSIS_MEMO_REFINED_v2.docx   Final memo (refined)
+|   |-- DST_CRIME_ANALYSIS_MEMO-v1.pdf            PDF fallback
+|   `-- (older memo versions archived in archive/reports/)
 |-- notebooks/
-|   `-- dst_crime_analysis.ipynb        Main analysis notebook (all models here)
+|   |-- dst_crime_ca_az_refined.ipynb   Main / final analysis notebook (CA vs AZ)
+|   `-- (older notebooks archived in archive/notebooks/)
 |-- scripts/
 |   |-- download_nibrs_state_files.py   Download raw NIBRS ZIPs from CDE
 |   |-- audit_nibrs_zip_quality.py      Check ZIP contents before parsing
@@ -75,6 +82,7 @@ IDS701_UDS_Final_Project/
 |-- nibrs_diagram.pdf                   NIBRS data structure diagram
 |-- .gitignore
 `-- README.md
+`-- SUBMISSION.md
 ```
 
 ---
@@ -201,17 +209,16 @@ Expected pass criteria:
 
 ### Step 5 - Run analysis
 
-Open and execute `notebooks/dst_crime_analysis.ipynb`.
+Open and execute `notebooks/dst_crime_ca_az_refined.ipynb` (final notebook).
 
 Warning: do not use `scripts/analyze_focus_states_dst.py` or
 `scripts/load_crime_open_data.py` for final estimation outputs.
 
 ---
 
-## Analysis Notebook: dst_crime_analysis.ipynb
+## Analysis Notebook: dst_crime_ca_az_refined.ipynb (final)
 
-The notebook runs end-to-end. Stage 1 uses hourly crime data to test the within-state
-displacement mechanism. Stage 2 uses the daily county panel for the cross-state causal estimates.
+The final notebook runs end-to-end for the CA vs AZ design used in the memo.
 
 ### Stage 1: Within-State Hourly Displacement Analysis
 

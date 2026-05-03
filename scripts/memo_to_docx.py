@@ -1,8 +1,17 @@
+"""Render a Markdown Data Science Memo into a formatted Word document.
+
+Defaults are set to a safe, non-destructive regeneration target:
+    - input:  archive/reports/DST_CRIME_ANALYSIS_MEMO_REFINED.md
+    - output: reports/DST_CRIME_ANALYSIS_MEMO_REFINED_rebuilt.docx
+    - figures directory root: figures/memo_refined
+
+Override paths via CLI args to generate alternate memo versions.
 """
-Convert DST_CRIME_ANALYSIS_MEMO.md to a formatted Word document.
-Run from the project root: python scripts/memo_to_docx.py
-"""
+
+from __future__ import annotations
+
 import re
+import argparse
 from pathlib import Path
 from docx import Document
 from docx.shared import Inches, Pt, RGBColor
@@ -11,9 +20,28 @@ from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 
 ROOT = Path(".")
-MD_PATH  = ROOT / "DST_CRIME_ANALYSIS_MEMO.md"
-OUT_PATH = ROOT / "DST_CRIME_ANALYSIS_MEMO.docx"
-FIG_DIR  = ROOT / "figures/memo"
+DEFAULT_MD_PATH = ROOT / "archive" / "reports" / "DST_CRIME_ANALYSIS_MEMO_REFINED.md"
+DEFAULT_OUT_PATH = ROOT / "reports" / "DST_CRIME_ANALYSIS_MEMO_REFINED_rebuilt.docx"
+DEFAULT_FIG_DIR = ROOT / "figures" / "memo_refined"
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--md", type=Path, default=DEFAULT_MD_PATH, help="Input markdown file")
+    parser.add_argument("--out", type=Path, default=DEFAULT_OUT_PATH, help="Output .docx path")
+    parser.add_argument(
+        "--fig-dir",
+        type=Path,
+        default=DEFAULT_FIG_DIR,
+        help="Base directory that image paths are resolved against",
+    )
+    return parser.parse_args()
+
+args = parse_args()
+
+MD_PATH = args.md
+OUT_PATH = args.out
+FIG_DIR = args.fig_dir
 
 doc = Document()
 
@@ -180,9 +208,23 @@ while i < len(lines):
     # HTML img tag — insert figure
     m = re.match(r'\s*<img\s+src="([^"]+)".*?alt="([^"]*)"', line)
     if m:
-        src  = m.group(1).replace('./', '')
-        alt  = m.group(2)
-        img_path = ROOT / src
+        src_raw = m.group(1)
+        _alt = m.group(2)
+
+        src_path = Path(src_raw)
+        if src_path.is_absolute():
+            img_path = src_path
+        else:
+            # Prefer resolving relative to the markdown file location.
+            img_path = (MD_PATH.parent / src_path)
+            if not img_path.exists():
+                # Next, try interpreting the src as repo-root-relative.
+                img_path = (ROOT / src_path)
+            if not img_path.exists():
+                # Fallbacks for custom fig-dir or simple filenames.
+                img_path = (FIG_DIR / src_path)
+            if not img_path.exists():
+                img_path = (FIG_DIR / src_path.name)
         # Bold figure label was captured on previous non-empty pass
         if fig_bold_caption:
             p = doc.add_paragraph()

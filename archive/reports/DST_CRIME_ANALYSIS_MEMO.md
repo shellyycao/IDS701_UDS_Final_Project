@@ -36,7 +36,7 @@ Arizona provides a rare within-U.S. benchmark: most of its counties do not obser
 **Figure 1 — Monthly seasonality and ±15-day spring-forward window (CA vs. AZ)**
 *Both states show a similar summer crime rise, demonstrating why raw seasonal comparisons overstate any DST effect. The ±15-day panel shows average daily rates centered on each year's spring-forward date (day 0); no sharp jump at day 0 argues against a large one-day clock-change shock.*
 
-<img src="./figures/memo/01_stage_1a_daily_data_seasonality_ca_vs_az_and_sprin.png" alt="Figure 1: Stage 1A daily CA vs AZ seasonality and spring-forward window" width="900" />
+<img src="../figures/memo/01_stage_1a_daily_data_seasonality_ca_vs_az_and_sprin.png" alt="Figure 1: Stage 1A daily CA vs AZ seasonality and spring-forward window" width="900" />
 
 ## What the Evidence Shows
 
@@ -45,7 +45,7 @@ Arizona provides a rare within-U.S. benchmark: most of its counties do not obser
 **Figure 2 — Baseline TWFE: DST-window effect on daily crime rates (CA, FL, UT vs. AZ)**
 *All confidence intervals cross zero. After Holm-Bonferroni correction for testing six outcomes, no offense reaches significance.*
 
-<img src="./figures/memo/07_24_two_way_fixed_effects_did.png" alt="Figure 2: Baseline TWFE dot plot" width="900" />
+<img src="../figures/memo/07_24_two_way_fixed_effects_did.png" alt="Figure 2: Baseline TWFE dot plot" width="900" />
 
 | Offense | Estimated effect | Unadjusted p | Holm-corrected p |
 |---|---|---|---|
@@ -63,14 +63,14 @@ With six outcomes tested simultaneously, a false positive at the 10% level is ex
 **Figure 3 — All-crime aggregate TWFE (sum of all six offense rates per county-day)**
 *The aggregate effect is β = +0.013 per 100k/day (p = 0.600). Both the trend lines and the single point estimate confirm no detectable DST-window shift in total crime.*
 
-<img src="./figures/memo/12_212_all_crime_aggregate.png" alt="Figure 3: All-crime aggregate monthly trend and TWFE estimate" width="900" />
+<img src="../figures/memo/12_212_all_crime_aggregate.png" alt="Figure 3: All-crime aggregate monthly trend and TWFE estimate" width="900" />
 
 ### The one credible signal: theft from motor vehicle in CA and UT
 
 **Figure 4 — Heterogeneity by state (theft from motor vehicle)**
 *CA vs AZ: β = +0.039, p = 0.003. UT vs AZ: β = +0.045, p = 0.004. Florida does not show the same pattern (p = 0.209). The two states with the tightest geographic match to Arizona — Utah, which borders it directly, and California — independently produce the same finding.*
 
-<img src="./figures/memo/10_27_heterogeneity.png" alt="Figure 4: Heterogeneity by state" width="900" />
+<img src="../figures/memo/10_27_heterogeneity.png" alt="Figure 4: Heterogeneity by state" width="900" />
 
 This state-level pattern is specific, directionally consistent across two independent comparisons, and at p-values that are strong even before correction. It does not automatically survive a full FWER correction across all outcomes and states simultaneously, and it does not establish that DST *causes* higher vehicle theft — pre-existing state-level trends cannot be fully excluded. But it is the most credible individual finding in the analysis and the appropriate focus of any follow-up work.
 
@@ -79,7 +79,7 @@ This state-level pattern is specific, directionally consistent across two indepe
 **Figure 5 — Event studies around spring-forward (2-week bins)**
 *Coefficients in the pre-period (bins −4 to −1) are close to zero for robbery, theft from motor vehicle, and motor vehicle theft — supporting parallel trends for those offenses. Burglary, shoplifting, and theft from building show borderline pre-trend violations; causal claims for those three offenses are not warranted here.*
 
-<img src="./figures/memo/08_25_event_study.png" alt="Figure 5: Event study spring-forward" width="900" />
+<img src="../figures/memo/08_25_event_study.png" alt="Figure 5: Event study spring-forward" width="900" />
 
 ### The light-shift mechanism: not confirmed
 
@@ -90,11 +90,11 @@ The triple-difference regression — which tests whether the within-day shift in
 **Figure 6 — Hourly profiles, time-bucket summary, and triple-difference coefficients**
 *Left: raw hourly profiles. Center: time-bucket means with 95% CI. Right: triple-difference coefficients — the direct DST mechanism test. Neither bucket is significant; the morning coefficient is in the wrong direction for the displacement hypothesis.*
 
-<img src="./figures/memo/02_stage_1b_hourly_crime_profile_before_vs_after_spri.png" alt="Figure 6a: Hourly crime profile Stage 1B" width="900" />
+<img src="../figures/memo/02_stage_1b_hourly_crime_profile_before_vs_after_spri.png" alt="Figure 6a: Hourly crime profile Stage 1B" width="900" />
 
-<img src="./figures/memo/03_stage_1c_bucket_level_summary.png" alt="Figure 6b: Stage 1C bucket summary with 95% CI" width="900" />
+<img src="../figures/memo/03_stage_1c_bucket_level_summary.png" alt="Figure 6b: Stage 1C bucket summary with 95% CI" width="900" />
 
-<img src="./figures/memo/04_stage_1d_displacement_regression.png" alt="Figure 6c: Stage 1D triple-diff coefficients" width="900" />
+<img src="../figures/memo/04_stage_1d_displacement_regression.png" alt="Figure 6c: Stage 1D triple-diff coefficients" width="900" />
 
 ## Limitations
 
@@ -117,14 +117,14 @@ The appropriate conclusion for legislators is: **current evidence does not suppo
 
 ### Descriptive statistics
 
-<img src="./figures/memo/05_23_descriptive_statistics.png" alt="Descriptive statistics 1" width="900" />
+<img src="../figures/memo/05_23_descriptive_statistics.png" alt="Descriptive statistics 1" width="900" />
 
-<img src="./figures/memo/06_23_descriptive_statistics.png" alt="Descriptive statistics 2" width="900" />
+<img src="../figures/memo/06_23_descriptive_statistics.png" alt="Descriptive statistics 2" width="900" />
 
 ### Event study: fall-back
 
-<img src="./figures/memo/09_25_event_study.png" alt="Event study around fall-back" width="900" />
+<img src="../figures/memo/09_25_event_study.png" alt="Event study around fall-back" width="900" />
 
 ### Robustness checks
 
-<img src="./figures/memo/11_28_robustness.png" alt="Robustness: exclude holidays, weekdays only, placebo, year FE" width="900" />
+<img src="../figures/memo/11_28_robustness.png" alt="Robustness: exclude holidays, weekdays only, placebo, year FE" width="900" />
