@@ -1,0 +1,65 @@
+date,year,local_name,name,country_code,global,fixed,launch_year,types
+2021-01-01,2021,New Year's Day,New Year's Day,US,True,False,,Public
+2021-01-18,2021,"Martin Luther King, Jr. Day","Martin Luther King, Jr. Day",US,True,False,,Public
+2021-02-12,2021,Lincoln's Birthday,Lincoln's Birthday,US,False,False,,Observance
+2021-02-15,2021,Washington's Birthday,Presidents Day,US,True,False,,Public
+2021-04-02,2021,Good Friday,Good Friday,US,False,False,,Public
+2021-04-02,2021,Good Friday,Good Friday,US,False,False,,Optional
+2021-05-08,2021,Truman Day,Truman Day,US,False,False,,"School,Authorities"
+2021-05-31,2021,Memorial Day,Memorial Day,US,True,False,,Public
+2021-06-18,2021,Juneteenth National Independence Day,Juneteenth National Independence Day,US,True,False,,Public
+2021-07-05,2021,Independence Day,Independence Day,US,True,False,,Public
+2021-09-06,2021,Labor Day,Labour Day,US,True,False,,Public
+2021-10-11,2021,Columbus Day,Columbus Day,US,False,False,,Public
+2021-10-11,2021,Indigenous Peoples' Day,Indigenous Peoples' Day,US,False,False,,Public
+2021-11-11,2021,Veterans Day,Veterans Day,US,True,False,,Public
+2021-11-25,2021,Thanksgiving Day,Thanksgiving Day,US,True,False,,Public
+2021-12-24,2021,Christmas Day,Christmas Day,US,True,False,,Public
+2021-12-31,2022,New Year's Day,New Year's Day,US,True,False,,Public
+2022-01-17,2022,"Martin Luther King, Jr. Day","Martin Luther King, Jr. Day",US,True,False,,Public
+2022-02-12,2022,Lincoln's Birthday,Lincoln's Birthday,US,False,False,,Observance
+2022-02-21,2022,Washington's Birthday,Presidents Day,US,True,False,,Public
+2022-04-15,2022,Good Friday,Good Friday,US,False,False,,Public
+2022-04-15,2022,Good Friday,Good Friday,US,False,False,,Optional
+2022-05-08,2022,Truman Day,Truman Day,US,False,False,,"School,Authorities"
+2022-05-30,2022,Memorial Day,Memorial Day,US,True,False,,Public
+2022-06-20,2022,Juneteenth National Independence Day,Juneteenth National Independence Day,US,True,False,,Public
+2022-07-04,2022,Independence Day,Independence Day,US,True,False,,Public
+2022-09-05,2022,Labor Day,Labour Day,US,True,False,,Public
+2022-10-10,2022,Columbus Day,Columbus Day,US,False,False,,Public
+2022-10-10,2022,Indigenous Peoples' Day,Indigenous Peoples' Day,US,False,False,,Public
+2022-11-11,2022,Veterans Day,Veterans Day,US,True,False,,Public
+2022-11-24,2022,Thanksgiving Day,Thanksgiving Day,US,True,False,,Public
+2022-12-26,2022,Christmas Day,Christmas Day,US,True,False,,Public
+2023-01-02,2023,New Year's Day,New Year's Day,US,True,False,,Public
+2023-01-16,2023,"Martin Luther King, Jr. Day","Martin Luther King, Jr. Day",US,True,False,,Public
+2023-02-12,2023,Lincoln's Birthday,Lincoln's Birthday,US,False,False,,Observance
+2023-02-20,2023,Washington's Birthday,Presidents Day,US,True,False,,Public
+2023-04-07,2023,Good Friday,Good Friday,US,False,False,,Public
+2023-04-07,2023,Good Friday,Good Friday,US,False,False,,Optional
+2023-05-08,2023,Truman Day,Truman Day,US,False,False,,"School,Authorities"
+2023-05-29,2023,Memorial Day,Memorial Day,US,True,False,,Public
+2023-06-19,2023,Juneteenth National Independence Day,Juneteenth National Independence Day,US,True,False,,Public
+2023-07-04,2023,Independence Day,Independence Day,US,True,False,,Public
+2023-09-04,2023,Labor Day,Labour Day,US,True,False,,Public
+2023-10-09,2023,Columbus Day,Columbus Day,US,False,False,,Public
+2023-10-09,2023,Indigenous Peoples' Day,Indigenous Peoples' Day,US,False,False,,Public
+2023-11-10,2023,Veterans Day,Veterans Day,US,True,False,,Public
+2023-11-23,2023,Thanksgiving Day,Thanksgiving Day,US,True,False,,Public
+2023-12-25,2023,Christmas Day,Christmas Day,US,True,False,,Public
+2024-01-01,2024,New Year's Day,New Year's Day,US,True,False,,Public
+2024-01-15,2024,"Martin Luther King, Jr. Day","Martin Luther King, Jr. Day",US,True,False,,Public
+2024-02-12,2024,Lincoln's Birthday,Lincoln's Birthday,US,False,False,,Observance
+2024-02-19,2024,Washington's Birthday,Presidents Day,US,True,False,,Public
+2024-03-29,2024,Good Friday,Good Friday,US,False,False,,Public
+2024-03-29,2024,Good Friday,Good Friday,US,False,False,,Optional
+2024-05-08,2024,Truman Day,Truman Day,US,False,False,,"School,Authorities"
+2024-05-27,2024,Memorial Day,Memorial Day,US,True,False,,Public
+2024-06-19,2024,Juneteenth National Independence Day,Juneteenth National Independence Day,US,True,False,,Public
+2024-07-04,2024,Independence Day,Independence Day,US,True,False,,Public
+2024-09-02,2024,Labor Day,Labour Day,US,True,False,,Public
+2024-10-14,2024,Columbus Day,Columbus Day,US,False,False,,Public
+2024-10-14,2024,Indigenous Peoples' Day,Indigenous Peoples' Day,US,False,False,,Public
+2024-11-11,2024,Veterans Day,Veterans Day,US,True,False,,Public
+2024-11-28,2024,Thanksgiving Day,Thanksgiving Day,US,True,False,,Public
+2024-12-25,2024,Christmas Day,Christmas Day,US,True,False,,Public
